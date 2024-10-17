@@ -1,0 +1,12 @@
+import basix.ufl
+import ufl
+
+# Create a simple form
+mesh = ufl.Mesh(basix.ufl.element("Lagrange", "triangle", 1, shape=(2,)))
+e = basix.ufl.element("Lagrange", "triangle", 1)
+
+V = ufl.FunctionSpace(mesh, e)
+u = ufl.TrialFunction(V)
+v = ufl.TestFunction(V)
+
+a = ufl.inner(ufl.grad(u), ufl.grad(v)) * (ufl.dx+ufl.dC)
