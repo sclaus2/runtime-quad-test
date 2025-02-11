@@ -46,7 +46,7 @@ def generate_runtime_kernel(forms, scalar_type, options):
     integral_id = form0.form_integral_ids[offsets[cutcell]]
     assert integral_id == -1
     default_integral = form0.form_integrals[offsets[cutcell]]
-    kernel = getattr(default_integral, f"tabulate_tensor_runtime_quad_{scalar_type}")
+    kernel = getattr(default_integral, f"tabulate_tensor_runtime_{scalar_type}")
     return kernel, code, module, default_integral
 
 # Create a simple form

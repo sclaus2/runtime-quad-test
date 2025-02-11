@@ -91,7 +91,7 @@ int main(int argc, char* argv[])
   for(std::int32_t i = 0; i < num_points; ++i)
       weights[i] = wts[i]*std::fabs(_detJ);
 
-  auto custom_kernel = custom_integral->tabulate_tensor_runtime_quad_float64;
+  auto custom_kernel = custom_integral->tabulate_tensor_runtime_float64;
   auto cell_kernel = cell_integral->tabulate_tensor_float64;
 
   int num_dofs = shape[2];
